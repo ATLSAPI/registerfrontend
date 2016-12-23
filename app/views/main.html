@@ -2,12 +2,13 @@
   <h1>'Allo, 'Allo! Sign In!</h1>
   <qr-scanner width="500" height="300" ng-success="vm.onSuccess(data)" ng-error="vm.onError(error)" />
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    <!-- <img src="images/yeoman.png" alt="I'm Yeoman"> -->
+    <br>
+    <div class="alert btn-success" ng-show="vm.success">{{vm.message}} <span class="glyphicon glyphicon-ok"></span></div>
   </p>
-  <p><button class="btn btn-lg btn-success">Splendid!<span class="glyphicon glyphicon-ok"></span></button></p>
+  <!-- <p><button class="btn btn-lg btn-success">Splendid!<span class="glyphicon glyphicon-ok"></span></button></p> -->
+  <!-- <div class="alert alert success" >{{vm.message}}<div> -->
 </div>
-<div class="alert alert success" ng-show="vm.success">{{vm.message}}<div>
 <div class="row marketing">
   <h4>HTML5 Boilerplate</h4>
   <p>

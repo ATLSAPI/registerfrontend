@@ -11,6 +11,8 @@ angular.module('backendApp')
   .controller('MainCtrl', function($timeout, appSettings, clockInService, userService, firebaseService) {
 
     var vm = this;
+    var shouldProcess = true;
+    vm.success = false;
     vm.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -41,14 +43,20 @@ angular.module('backendApp')
     vm.onSuccess = function(data) {
       console.log(data);
       vm.message = "Signed In Successfully";
-      clockInService.processAction(data)
-        .then(function() {
-          vm.success = true;
-          console.log('done');
-          $timeout(function () {
-            vm.success = false;
-          }, 1000);
-        });
+
+
+      if (shouldProcess) {
+        shouldProcess = false;
+        clockInService.processAction(data)
+          .then(function() {
+            vm.success = true;
+            console.log('done');
+            $timeout(function() {
+              vm.success = false;
+              shouldProcess = true;
+            }, 2000);
+          });
+      }
     };
 
     vm.onError = function(error) {
