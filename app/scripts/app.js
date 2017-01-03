@@ -28,15 +28,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/register', {
-        templateUrl: 'views/register.html',
-        controller: 'RegisterCtrl',
-        controllerAs: 'register'
+      .when('/list', {
+        templateUrl: 'views/list.html',
+        controller: 'ListCtrl',
+        controllerAs: 'list'
       })
       .otherwise({
         redirectTo: '/'
